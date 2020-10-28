@@ -1,0 +1,12 @@
+openapi: 3.0.0
+paths:
+  /V1/products:
+    get:
+      tags:
+        - product
+      summary: 'Returns a list of products'
+      description: 'Returns a object of products'
+      operationId: 'App\Http\Controllers\API\ProductController::index'
+      responses:
+        '200':
+          description: 'A list with products'

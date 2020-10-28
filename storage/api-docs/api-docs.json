@@ -1,0 +1,111 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Select Application",
+        "contact": "your@email.com",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api/",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/products": {
+            "get": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Returns a list of products",
+                "description": "Returns a object of products",
+                "operationId": "App\\Http\\Controllers\\API\\ProductController::index",
+                "responses": {
+                    "200": {
+                        "description": "A list with products"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Store product",
+                "description": "Returns a object of product",
+                "operationId": "App\\Http\\Controllers\\API\\ProductController::store",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Product name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "path",
+                        "description": "Category id Product",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/products/{id}": {
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Show product",
+                "description": "Returns a object of product",
+                "operationId": "App\\Http\\Controllers\\API\\ProductController::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Product id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
